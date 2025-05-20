@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Nubyte</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <header>
+    <h1>Nubyte</h1>
+    <nav>
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#challenges">Challenges</a></li>
+        <li><a href="#crew">Meet the Crew</a></li>
+        <li><a href="#videos">Videos</a></li>
+        <li><a href="#subscribe">Subscribe</a></li>
+        <li><a href="#game">Game</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section id="signin" class="content">
+    <img src="images/signin.png" alt="Sign In">
+    <h2>Sign In</h2>
+    <form onsubmit="signInUser(event)">
+        <label for="email">Email:</label><br>
+        <input type="email" id="email" name="email" required><br><br>
+
+        <label for="password">Password:</label><br>
+        <input type="password" id="password" name="password" required><br><br>
+
+        <button type="submit" class="button">Sign In</button>
+    </form>
+    <p id="signinMessage" style="margin-top:10px;"></p>
+</section>
+
+
+<img src="images/channels4_banner.jpg" alt="channels4_banner" />
+
+  <section id="home">
+    <h2>Welcome!</h2>
+    <p>Welcome to Nubyte! If you believe in innovation, you're in the right place. Discover how technology and creativity can turn ideas into real solutions.</p>
+  </section>
+
+  <section id="challenges">
+    <h2>Problems Solutions</h2>
+    
+    <div class="challenge-card">
+      <h3>Yearly Budget Problem</h3>
+      <p>Calculate how much each department receives based on a hospital’s budget: Urgencies (37%), Pediatric (42%), and Traumatology (21%).</p>
+      <img src="images/yearly budget problem.png" alt="Flowchart 1" />
+    </div>
+
+    <div class="challenge-card">
+      <h3>Calculator Problem</h3>
+      <p>Create a calculator that receives two values and allows the user to add, subtract, multiply or divide them.</p>
+      <img src="images/2025-05-19 22 40 54.png" alt="Flowchart 2" />
+    </div>
+  </section>
+
+  <section id="crew">
+    <h2>Meet the Crew</h2>
+    
+    <div class="crew-member">
+      <img src="images/e9dbf981-ab20-4aad-add9-9fda18cf3f52.jpg" alt="Student" />
+      <h4>Guillermo Guzmán</h4>
+      <p>Programming Student</p>
+      <p>Creative and passionate about technology, innovation, and Music.</p>
+    </div>
+  </section>
+
+  <section id="videos">
+    <h2>Learn with Us</h2>
+    <iframe width="560" height="315" src="https://www.youtube.com/watch?v=qK-SYK1PI-U&t=15s" frameborder="0" allowfullscreen></iframe>
+  </section>
+
+  <section id="subscribe">
+    <h2>Subscribe for More Information</h2>
+    <form id="subscriptionForm">
+      <label for="email">Type your email to subscribe and get full access to our content:</label><br/>
+      <input type="email" id="email" required />
+      <button type="submit">Subscribe</button>
+      <p id="subscribeMessage"></p>
+    </form>
+  </section>
+
+  <section id="game">
+    <h2>Guess the Number!</h2>
+    <p>Type a number between 0 and 100. Try to guess the number!</p>
+    <input type="number" id="guess" />
+    <button onclick="checkGuess()">Guess</button>
+    <p id="result"></p>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Nubyte</p>
+  </footer>
+
+  <script>
+    // Subscription Form
+    document.getElementById("subscriptionForm").addEventListener("submit", function(event) {
+      event.preventDefault();
+      const email = document.getElementById("email").value;
+      document.getElementById("subscribeMessage").textContent = "Thanks for subscribing, " + email + "!";
+    });
+
+    // Guessing Game
+    const secretNumber = Math.floor(Math.random() * 101);
+    function checkGuess() {
+      const userGuess = parseInt(document.getElementById("guess").value);
+      const result = document.getElementById("result");
+      if (userGuess === secretNumber) {
+        result.textContent = "Congratulations! You guessed the number!";
+      } else if (userGuess < secretNumber) {
+        result.textContent = "Too low. Try again!";
+      } else {
+        result.textContent = "Too high. Try again!";
+      }
+    }
+  </script>
+
+</body>
+</html>
+
+
